@@ -24,7 +24,7 @@ This plugin fills a small gap in the tracking of Google AdWords conversions in c
 
 = Where can I report a bug or suggest improvements? =
 
-Please follow this link to report bugs or suggest improvements: http://www.wolfundbaer.ch/woocommerce-google-adwords-conversion-tracking-tag/
+Please follow this link to report bugs or suggest improvements: http://www.wolfundbaer.ch/woocommerce-google-adwords-conversion-tracking-tag/?lang=en
 
 == Screenshots ==
 
