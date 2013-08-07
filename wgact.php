@@ -52,7 +52,7 @@ class WGACT{
 
 		?>
 		<div>
-		<h2>Google AdWords conversion tracking tag</h2>
+		<h2>WooCommerce Google AdWords conversion tracking tag</h2>
 
 
 		<form action="options.php" method="post">
@@ -94,7 +94,7 @@ class WGACT{
 	}
 
 	function wgact_plugin_section_text() {
-		echo '<p>Google AdWords conversion tracking tag</p>';
+		echo '<p>Woocommerce Google AdWords conversion tracking tag</p>';
 	}
 
 	/*
