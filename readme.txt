@@ -18,7 +18,7 @@ This plugin fills a small gap in the tracking of Google AdWords conversions in c
 
 1. Upload the wgact plugin directory into your `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. In the Wordpress admin panel go to settings and the into the WGACT Plugin Menu. Please enter the necessary settings for your installation.
+3. In the WordpPress admin panel go to settings and the into the WGACT Plugin Menu. Please enter the necessary settings for your installation.
 
 == Frequently Asked Questions ==
 
