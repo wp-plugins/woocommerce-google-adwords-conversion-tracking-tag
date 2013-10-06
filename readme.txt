@@ -3,8 +3,8 @@ Contributors: alekv
 Donate link: http://www.wolfundbaer.ch/donations/
 Tags: WooCommerce, Google AdWords, conversion tag, conversion value tracking
 Requires at least: 3.0.1
-Tested up to: 3.6
-Stable tag: 0.1.1
+Tested up to: 3.6.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,8 @@ This plugin fills a small gap in the tracking of Google AdWords conversions in c
 
 1. Upload the wgact plugin directory into your `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. In the WordpPress admin panel go to settings and the into the WGACT Plugin Menu. Please enter the necessary settings for your installation.
+3. Get the AdWords conversion ID and the conversion label. You will find both values in the AdWords conversion tracking code. 
+4. In the WordpPress admin panel go to settings and then into the WGACT Plugin Menu. Please enter the conversion ID and the conversion label into their respective fields. 
 
 == Frequently Asked Questions ==
 
@@ -30,5 +31,11 @@ Please follow this link to report bugs or suggest improvements: http://www.wolfu
 
 == Changelog ==
 
+
+= 0.1.2 =
+* Disabled the check if WooCommerce is running. The check doesn't work properly with multisite WP installations, though the plugin does work with the multisite feature turned on. 
+* Added more description in the code to explain why I've build a workaround to not place the tracking code into the thankyou template of WC.
+= 0.1.1 =
+* Some minor changes to the code
 = 0.1 =
 * This is the initial release of the plugin. There are no known bugs so far.
