@@ -4,7 +4,7 @@ Donate link: http://www.wolfundbaer.ch/donations/
 Tags: WooCommerce, Google AdWords, conversion tag, conversion value tracking
 Requires at least: 3.0.1
 Tested up to: 3.6.1
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,13 +25,19 @@ This plugin fills a small gap in the tracking of Google AdWords conversions in c
 
 = Where can I report a bug or suggest improvements? =
 
-Please follow this link to report bugs or suggest improvements: http://www.wolfundbaer.ch/woocommerce-google-adwords-conversion-tracking-tag/?lang=en
+Please post your problem in the WGACT Support forum: http://wordpress.org/support/plugin/woocommerce-google-adwords-conversion-tracking-tag
+I will need following information to be able to help you:
+The link to your shops "thankyou" page where the conversion code should be.
+The correct conversion ID and conversion label.
+The versions of WordPress and WooCommerce.
+The WooCommerce theme you are using.
 
 == Screenshots ==
 
 == Changelog ==
 
-
+= 0.1.3 =
+* Changed conversion language to 'en'. 
 = 0.1.2 =
 * Disabled the check if WooCommerce is running. The check doesn't work properly with multisite WP installations, though the plugin does work with the multisite feature turned on. 
 * Added more description in the code to explain why I've build a workaround to not place the tracking code into the thankyou template of WC.

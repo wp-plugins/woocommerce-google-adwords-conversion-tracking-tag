@@ -5,7 +5,7 @@
 Plugin Name:  WooCommerce Google AdWords conversion tracking tag
 Plugin URI:   http://www.wolfundbaer.ch
 Description:  This plugin fills a small gap in the tracking of Google AdWords conversions in conjunction with WooCommerce. Whereas other available plugins inject a static AdWords tracking tag, this plugin is dynamic and  enables the tracking code to also measure the total value of the transaction.  This is important if you want to measure the ROI of the AdWords account. Sure this can be done in different ways, but for everyone who would like to use this feature with WooCommerce and AdWords, this is the right plugin. It has been tested with Wordpress 3.6, WooCommerce 2.0.13 and the WooCommerce theme Wootique 1.6.7, though the plugin should work with all WooCommerce themes. 
-Version:      0.1.2
+Version:      0.1.3
 Author:       Wolf & Bär
 Author URI:   http://www.wolfundbaer.ch
 
@@ -199,7 +199,7 @@ Until the the bug is resolved or I find a workaround I can't place the tracking 
 			<script type="text/javascript">
 			/* <![CDATA[ */
 			var google_conversion_id = <?php echo $conversion_id; ?>;
-			var google_conversion_language = "de";
+			var google_conversion_language = "en";
 			var google_conversion_format = "2";
 			var google_conversion_color = "ffffff";
 			var google_conversion_label = "<?php echo $conversion_label; ?>";
