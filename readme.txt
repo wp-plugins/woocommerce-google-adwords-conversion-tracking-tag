@@ -4,7 +4,7 @@ Donate link: http://www.wolfundbaer.ch/donations/
 Tags: WooCommerce, Google AdWords, conversion tag, conversion value tracking
 Requires at least: 3.0.1
 Tested up to: 3.6.1
-Stable tag: 0.1.3
+Stable tag: 0.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ This plugin inserts a Google AdWords conversion tracking tag into the thankyou p
 
 == Description ==
 
-This plugin fills a small gap in the tracking of Google AdWords conversions in conjunction with WooCommerce. Whereas other available plugins inject a static AdWords tracking tag, this plugin is dynamic and  enables the tracking code to also measure the total value of the transaction.  This is important if you want to measure the ROI of the AdWords account. Sure this can be done in different ways, but for everyone who would like to use this feature with WooCommerce and AdWords, this is the right plugin. It has been tested with Wordpress 3.6, WooCommerce 2.0.13 and the WooCommerce theme Wootique 1.6.7, though the plugin should work with all WooCommerce themes.
+This plugin fills a small gap in the tracking of Google AdWords conversions in conjunction with WooCommerce. Whereas other available plugins inject a static AdWords tracking tag, this plugin is dynamic and  enables the tracking code to also measure the total value of the transaction.  This is important if you want to measure the ROI of the AdWords account. Sure this can be done in different ways, but for everyone who would like to use this feature with WooCommerce and AdWords, this is the right plugin. It has been tested with Wordpress 3.6, WooCommerce 2.0.13 and the WooCommerce theme Wootique 1.6.7, though the plugin should work with all WooCommerce themes (tested themes are: Canvas, Wootique, Avada by ThemeFusion).
  
 == Installation ==
 
@@ -36,6 +36,8 @@ The WooCommerce theme you are using.
 
 == Changelog ==
 
+= 0.1.4 =
+* Changed the woo_foot hook to wp_footer to avoid problems with some themes. This should be more compatible with most themes as long as they use the wp_footer hook. 
 = 0.1.3 =
 * Changed conversion language to 'en'. 
 = 0.1.2 =
