@@ -5,7 +5,7 @@
 Plugin Name:  WooCommerce Google AdWords conversion tracking tag
 Plugin URI:   http://www.wolfundbaer.ch
 Description:  This plugin fills a small gap in the tracking of Google AdWords conversions in conjunction with WooCommerce. Whereas other available plugins inject a static AdWords tracking tag, this plugin is dynamic and  enables the tracking code to also measure the total value of the transaction.  This is important if you want to measure the ROI of the AdWords account. Sure this can be done in different ways, but for everyone who would like to use this feature with WooCommerce and AdWords, this is the right plugin. It has been tested with Wordpress 3.6, WooCommerce 2.0.13 and the WooCommerce theme Wootique 1.6.7, though the plugin should work with all WooCommerce themes. 
-Version:      0.1.1
+Version:      0.1.4
 Author:       Wolf & Bär
 Author URI:   http://www.wolfundbaer.ch
 
@@ -16,12 +16,16 @@ class WGACT{
 	
 	public function __construct(){
 		
-		// check if WooCommerce is installed.
-		if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+		// check if WooCommerce is installed. CHECK DISABLED because it doesn't work properly when the multisite feature is turned on in WP
+		//if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 			
 			// insert the tracking code into the footer of the WooCommerce page
-			add_action( 'woo_foot', array( $this, 'GoogleAdWordsTag' ));
-		}
+			
+			// using the woo_foot hook leads to problems with some themes. using wp_footer instead should solve it for all themes, as long as they use the standard wp_footer hook
+			// add_action( 'woo_foot', array( $this, 'GoogleAdWordsTag' ));
+			add_action( 'wp_footer', array( $this, 'GoogleAdWordsTag' ));
+			
+		//}
 		//add_action( 'wp_head', array( $this, 'testecho' ));
 		
 		// add the admin options page
@@ -44,11 +48,13 @@ class WGACT{
 	// display the admin options page
 	function wgact_plugin_options_page() {
 	
-		// Throw a warning if WooCommerce is disabled.
+		// Throw a warning if WooCommerce is disabled. CHECK DISABLED because it doesn't work properly when the multisite feature is turned on in WP
+		/**
 		if (! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 
 			echo '<div><h1><font color="red"><b>WooCommerce not active -> tag insertion disabled !</b></font></h1></div>';
 		}
+		**/
 
 		?>
 		<div>
@@ -171,8 +177,11 @@ class WGACT{
 			//$mc_prefix = 'woocommerce_gpf_';
 			$mc_prefix = $this->get_mc_prefix();
 	
-	
-			// Ugly work around to get most recent order ID. This must be replaced.
+/**
+Ugly work around to get most recent order ID. This must be replaced.
+A bit more information on that: Unfortunately there is a filter in WP (up to the current version 3.6) where WP messes up the Google AdWords tracking tag after injecting it into the thankyou page. There is no workaround other than not injecting it into the thankyou page and placing the tracking code somewhere else where the WP filter is not applied. This bug was reported years ago and is still an issue: http://core.trac.wordpress.org/ticket/3670
+Until the the bug is resolved or I find a workaround I can't place the tracking code into the thankyou page.
+**/
 			global $wpdb;
 
 			$recent_order_id = $wpdb->get_var( 
@@ -194,7 +203,7 @@ class WGACT{
 			<script type="text/javascript">
 			/* <![CDATA[ */
 			var google_conversion_id = <?php echo $conversion_id; ?>;
-			var google_conversion_language = "de";
+			var google_conversion_language = "en";
 			var google_conversion_format = "2";
 			var google_conversion_color = "ffffff";
 			var google_conversion_label = "<?php echo $conversion_label; ?>";
