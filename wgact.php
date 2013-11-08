@@ -33,9 +33,21 @@ class WGACT{
 		
 		// install a settings page in the admin console
 		add_action('admin_init', array( $this, 'wgact_plugin_admin_init'));
+		
+		// add a settings link on the plugins page
+		add_filter('plugin_action_links', array($this, 'wgact_settings_link'), 10, 2);
 
 		
 	}
+	
+	// adds a link on the plugins page for the wgact settings
+	function wgact_settings_link($links, $file) {
+		if ($file == plugin_basename(__FILE__))
+			$links[] = '<a href="' . admin_url("options-general.php?page=do_wgact") . '">'. __('Settings') .'</a>';
+		return $links;
+	}
+	
+	
 	
 	
 	// add the admin options page
@@ -57,28 +69,49 @@ class WGACT{
 		**/
 
 		?>
-		<div>
-		<h2>WooCommerce Google AdWords conversion tracking tag</h2>
 
-
+		
+	<br>
+	<div style="background: #eee; width: 772px">
+		<div style="background: #ccc; padding: 10px; font-weight: bold">Configuration for the WooCommerce Google AdWords conversion tracking tag</div>
 		<form action="options.php" method="post">
-		<?php settings_fields('wgact_plugin_options'); ?>
-		<?php do_settings_sections('do_wgact'); ?>
+		
+			<?php settings_fields('wgact_plugin_options'); ?>
+			<?php do_settings_sections('do_wgact'); ?>
+		<br>
+	 <table class="form-table" style="margin: 10px">
+		<tr>
+			<th scope="row" style="white-space: nowrap">
+				<input name="Submit" type="submit" value="<?php esc_attr_e('Save Changes'); ?>" class="button" />
+			</th>
 
-		<input name="Submit" type="submit" value="<?php esc_attr_e('Save Changes'); ?>" />
-		</form></div>
-
-		<p>.<p>.<p>
-		<div><h3>This plugin was developed by <a href="http://www.wolfundbaer.ch" target="_blank">Wolf & Bär</a><p>Buy me a beer if you like the plugin.<br>
-		If you want me to continue developing the plugin buy me a few more beers.</h3></div>
-
-		<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-		<input type="hidden" name="cmd" value="_s-xclick">
-		<input type="hidden" name="hosted_button_id" value="UE3D2AW8YTML8">
-		<input type="image" src="https://www.paypalobjects.com/en_US/CH/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-		<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+	</tr>
+	</table>
 		</form>
+	
+		</div>
 
+		<br>
+	
+		<div style="background: #eee; width: 772px">
+			<div style="background: #ccc; padding: 10px; font-weight: bold">Donation</div>
+		
+		    <table class="form-table" style="margin: 10px">
+		   	<tr>
+		   		<th scope="row">
+					<div style="padding: 10px">This plugin was developed by <a href="http://www.wolfundbaer.ch" target="_blank">Wolf & Bär</a><p>Buy me a beer if you like the plugin.<br>
+					If you want me to continue developing the plugin buy me a few more beers. Although, I probably will continue to develop the plugin anyway. It would be just much more fun if I had a few beers to celebrate my milestones.</div>
+
+					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="UE3D2AW8YTML8">
+					<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+					<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+					</form>
+		   		</th>
+		   </tr>
+		   </table>
+		</div>
 
 		<?php
 
@@ -92,11 +125,9 @@ class WGACT{
 	//register_setting( 'plugin_options', 'plugin_options', 'wgact_plugin_options_validate' );
 		register_setting( 'wgact_plugin_options', 'wgact_plugin_options_1');
 		register_setting( 'wgact_plugin_options', 'wgact_plugin_options_2');
-	//	register_setting( 'wgact_plugin_options', 'wgact_plugin_options_3');
 		add_settings_section('wgact_plugin_main', 'WGACT Main Settings', array($this,'wgact_plugin_section_text'), 'do_wgact');
 		add_settings_field('wgact_plugin_text_string_1', 'Conversion ID', array($this,'wgact_plugin_setting_string_1'), 'do_wgact', 'wgact_plugin_main');
-		add_settings_field('wgact_plugin_text_string_2', 'Conversion label', array($this,'wgact_plugin_setting_string_2'), 'do_wgact', 'wgact_plugin_main');
-	//	add_settings_field('wgact_plugin_text_string_3', 'Google Merchant Center prefix', 'wgact_plugin_setting_string_3', 'do_wgact', 'wgact_plugin_main');
+		add_settings_field('wgact_plugin_text_string_2', 'Conversion label', array($this,'wgact_plugin_setting_string_2'), 'do_wgact', 'wgact_plugin_main');	
 	}
 
 	function wgact_plugin_section_text() {

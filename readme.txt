@@ -2,9 +2,9 @@
 Contributors: alekv
 Donate link: http://www.wolfundbaer.ch/donations/
 Tags: WooCommerce, Google AdWords, conversion tag, conversion value tracking
-Requires at least: 3.0.1
-Tested up to: 3.6.1
-Stable tag: 0.1.4
+Requires at least: 3.1
+Tested up to: 3.7.1
+Stable tag: 0.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,6 +23,10 @@ This plugin fills a small gap in the tracking of Google AdWords conversions in c
 
 == Frequently Asked Questions ==
 
+= How do I check if the plugin is working properly?
+
+Download the Google Tag Assistant browser plugin. It is a powerful tool to validate all Google tags on your pages.
+
 = Where can I report a bug or suggest improvements? =
 
 Please post your problem in the WGACT Support forum: http://wordpress.org/support/plugin/woocommerce-google-adwords-conversion-tracking-tag
@@ -36,6 +40,9 @@ The WooCommerce theme you are using.
 
 == Changelog ==
 
+= 0.1.5 =
+* Added settings field to the plugin page.
+* Visual improvements to the options page.
 = 0.1.4 =
 * Changed the woo_foot hook to wp_footer to avoid problems with some themes. This should be more compatible with most themes as long as they use the wp_footer hook. 
 = 0.1.3 =
