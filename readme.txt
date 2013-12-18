@@ -3,8 +3,8 @@ Contributors: alekv
 Donate link: http://www.wolfundbaer.ch/donations/
 Tags: WooCommerce, Google AdWords, conversion tag, conversion value tracking
 Requires at least: 3.1
-Tested up to: 3.7.1
-Stable tag: 0.1.5
+Tested up to: 3.8
+Stable tag: 0.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ This plugin inserts a Google AdWords conversion tracking tag into the thankyou p
 
 == Description ==
 
-This plugin fills a small gap in the tracking of Google AdWords conversions in conjunction with WooCommerce. Whereas other available plugins inject a static AdWords tracking tag, this plugin is dynamic and  enables the tracking code to also measure the total value of the transaction.  This is important if you want to measure the ROI of the AdWords account. Sure this can be done in different ways, but for everyone who would like to use this feature with WooCommerce and AdWords, this is the right plugin. It has been tested with Wordpress 3.6, WooCommerce 2.0.13 and the WooCommerce theme Wootique 1.6.7, though the plugin should work with all WooCommerce themes (tested themes are: Canvas, Wootique, Avada by ThemeFusion).
+This plugin enables the Google AdWords conversion tag to dynamically track the order total of each order in WooCommerce. This is important if you want to measure the ROI of each keyword, ad, ad group and the entire AdWords account. Other plugins only insert a static AdWords conversion code and therefore are not able to track the order total. Sure this can be done in different ways, but for everyone who would like to use this feature with WooCommerce and AdWords in a comfortable way, this is the right plugin.
  
 == Installation ==
 
@@ -20,6 +20,9 @@ This plugin fills a small gap in the tracking of Google AdWords conversions in c
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Get the AdWords conversion ID and the conversion label. You will find both values in the AdWords conversion tracking code. 
 4. In the WordpPress admin panel go to settings and then into the WGACT Plugin Menu. Please enter the conversion ID and the conversion label into their respective fields. 
+5. Delete any other instances of the AdWords tracking code which tracks sales. (You might have several AdWords tracking codes, eg. tracking newsletter applications. Keep those.)
+6. Delete the cache on your server and on your browser.
+7. Check if the AdWords tag is running fine by placing a test order (ideally click on one of your AdWords ads first) and then check with the Google Tag Assistang browser plugin if the tag has been inserted corretly on the thank you page. 
 
 == Frequently Asked Questions ==
 
@@ -40,6 +43,8 @@ The WooCommerce theme you are using.
 
 == Changelog ==
 
+= 0.1.6 =
+* Added some PHP code to the tracking tag as recommended by Google. 
 = 0.1.5 =
 * Added settings field to the plugin page.
 * Visual improvements to the options page.
