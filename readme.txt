@@ -3,8 +3,8 @@ Contributors: alekv
 Donate link: http://www.wolfundbaer.ch/donations/
 Tags: WooCommerce, Google AdWords, conversion tag, conversion value tracking
 Requires at least: 3.1
-Tested up to: 3.8
-Stable tag: 0.1.6
+Tested up to: 3.8.1
+Stable tag: 0.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ This plugin inserts a Google AdWords conversion tracking tag into the thankyou p
 
 == Description ==
 
-This plugin enables the Google AdWords conversion tag to dynamically track the order total of each order in WooCommerce. This is important if you want to measure the ROI of each keyword, ad, ad group and the entire AdWords account. Other plugins only insert a static AdWords conversion code and therefore are not able to track the order total. Sure this can be done in different ways, but for everyone who would like to use this feature with WooCommerce and AdWords in a comfortable way, this is the right plugin.
+This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI or your campaigns.
  
 == Installation ==
 
@@ -26,7 +26,7 @@ This plugin enables the Google AdWords conversion tag to dynamically track the o
 
 == Frequently Asked Questions ==
 
-= How do I check if the plugin is working properly?
+= How do I check if the plugin is working properly? =
 
 Download the Google Tag Assistant browser plugin. It is a powerful tool to validate all Google tags on your pages.
 
@@ -43,6 +43,8 @@ The WooCommerce theme you are using.
 
 == Changelog ==
 
+= 0.1.7 =
+* Significantly improved the database access to evaluate the order value.
 = 0.1.6 =
 * Added some PHP code to the tracking tag as recommended by Google. 
 = 0.1.5 =
