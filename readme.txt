@@ -12,7 +12,7 @@ This plugin inserts a Google AdWords conversion tracking tag into the thankyou p
 
 == Description ==
 
-This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI or your campaigns.
+This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI of your campaigns.
  
 == Installation ==
 
