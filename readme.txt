@@ -33,11 +33,7 @@ Download the Google Tag Assistant browser plugin. It is a powerful tool to valid
 = Where can I report a bug or suggest improvements? =
 
 Please post your problem in the WGACT Support forum: http://wordpress.org/support/plugin/woocommerce-google-adwords-conversion-tracking-tag
-I will need following information to be able to help you:
-The link to your shops "thankyou" page where the conversion code should be.
-The correct conversion ID and conversion label.
-The versions of WordPress and WooCommerce.
-The WooCommerce theme you are using.
+You can send the link to the front page of your shop too if you think it would be of help.
 
 == Screenshots ==
 
