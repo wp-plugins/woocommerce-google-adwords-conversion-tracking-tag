@@ -4,7 +4,7 @@ Donate link: http://www.wolfundbaer.ch/donations/
 Tags: WooCommerce, Google AdWords, conversion tag, conversion value tracking
 Requires at least: 3.1
 Tested up to: 3.9
-Stable tag: 0.1.7
+Stable tag: 0.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,8 @@ You can send the link to the front page of your shop too if you think it would b
 
 == Changelog ==
 
+= 0.1.8 =
+* Fix: Corrected the plugin source to prevent an error during activation 
 = 0.1.7 =
 * Significantly improved the database access to evaluate the order value.
 = 0.1.6 =

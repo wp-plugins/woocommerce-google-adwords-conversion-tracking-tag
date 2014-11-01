@@ -1,11 +1,10 @@
 <?php
-
 /*********************************************************************************************************************************************************************************************************************************
 
 Plugin Name:  WooCommerce Google AdWords conversion tracking tag
 Plugin URI:   http://www.wolfundbaer.ch
 Description:  This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI of your campaigns.
-Version:      0.1.7
+Version:      0.1.8
 Author:       Wolf & Bär
 Author URI:   http://www.wolfundbaer.ch
 
