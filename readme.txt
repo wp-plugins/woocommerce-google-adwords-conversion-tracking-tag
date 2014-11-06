@@ -3,7 +3,7 @@ Contributors: alekv
 Donate link: http://www.wolfundbaer.ch/donations/
 Tags: WooCommerce, Google AdWords, conversion tag, conversion value tracking
 Requires at least: 3.1
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: 0.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
