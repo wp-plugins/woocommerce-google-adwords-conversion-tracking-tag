@@ -3,8 +3,8 @@
 
 Plugin Name:  WooCommerce Google AdWords conversion tracking tag
 Plugin URI:   http://www.wolfundbaer.ch
-Description:  This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI of your campaigns.
-Version:      0.1.8
+Description:  This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI or your campaigns.
+Version:      0.1.9
 Author:       Wolf & Bär
 Author URI:   http://www.wolfundbaer.ch
 
@@ -26,8 +26,20 @@ class WGACT{
 		}
 		*/
 		
+/**
+You might ask yourself why I am inserting the following function.
+A bit more information on that: Unfortunately there is a filter in WordPress (up to the current version 3.8.1) which messes up the Google AdWords tracking tag after injecting it into the thankyou page. The following function will fix this and is only a workaround until WordPress releases a fix. Accolaeds to awezlzel who posted this workaround. This bug was reported years ago and is still an open issue: http://core.trac.wordpress.org/ticket/3670
+**/
+		
+		function cdata_markupfix($content) { $content = str_replace("]]&gt;", "]]>", $content); return $content; }
+		function cdata_template_redirect( $content ) { ob_start('cdata_markupfix'); }
+		add_action('template_redirect','cdata_template_redirect',-1);
+		
 		// add the Google AdWords tag to the footer of the page
-		add_action( 'wp_footer', array( $this, 'GoogleAdWordsTag' ));
+		//add_action( 'wp_head', array( $this, 'GoogleAdWordsTag' ));
+		
+		// add the Google AdWords tag to the thankyou part of the page within the body tags
+		add_action( 'woocommerce_thankyou', array( $this, 'GoogleAdWordsTag' ));
 		
 		// add the admin options page
 		add_action('admin_menu', array( $this, 'wgact_plugin_admin_add_page'));
@@ -179,27 +191,15 @@ class WGACT{
 	}
 	
 	// insert the Google AdWords tag into the page
-	public function GoogleAdWordsTag() {
+	public function GoogleAdWordsTag($order_id) {
 
-		global $woocommerce;
-
-		if(is_order_received_page()){
-
-			$conversion_id    = $this->get_conversion_id();
-			$conversion_label = $this->get_conversion_label();
-			$mc_prefix        = $this->get_mc_prefix();
-			
-/*
-You might ask yourself why I am not inserting the AdWords tracking code into the thankyou template of WooCommerce.
-A bit more information on that: Unfortunately there is a filter in WordPress (up to the current version 3.8.1) which messes up the Google AdWords tracking tag after injecting it into the thankyou page. The only workaround I've have found so far is to place the tracking code into the footer where the problematic WordPress filter is not being applied. This bug was reported years ago and is still an open issue: http://core.trac.wordpress.org/ticket/3670
-*/
-	
-			global $wpdb;
-
-			// get order from URL and evaluate order total
-			$order       = new WC_Order(wc_get_order_id_by_order_key($_GET['key']));
-			$order_total = $order->get_total();
-	
+		$conversion_id    = $this->get_conversion_id();
+		$conversion_label = $this->get_conversion_label();
+		$mc_prefix        = $this->get_mc_prefix();
+		
+		// get order from URL and evaluate order total
+		$order = new WC_Order( $order_id );
+		$order_total = $order->get_total();
 	?>
 	
 	<!-- Google Code for Sales (AdWords) Conversion Page -->
@@ -207,29 +207,31 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 	/* <![CDATA[ */
 	var google_conversion_id = <?php echo $conversion_id; ?>;
 	var google_conversion_language = "en";
-	var google_conversion_format = "2";
+	var google_conversion_format = "3";
 	var google_conversion_color = "ffffff";
 	var google_conversion_label = "<?php echo $conversion_label; ?>";
 	<?php 
 
 	if ( $order_total ) {
-		echo "var google_conversion_value = " . $order_total;
+		echo "var google_conversion_value = " . $order_total . ";";
 	}
 
 	?>
-
+	
+	var google_conversion_currency = "<?php echo $order->get_order_currency(); ?>";
+	var google_remarketing_only = false;
 	/* ]]> */
 	</script>
 	<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 	</script>
 	<noscript>
 	<div style="display:inline;">
-	<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/<?php echo $conversion_id; ?>/?value=<?php echo $order_total; ?>&amp;label=<?php echo $conversion_label; ?>&amp;guid=ON&amp;script=0"/>
+	<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/<?php echo $conversion_id; ?>/?value=<?php echo $order_total; ?>&amp;currency_code=<?php echo $order->get_order_currency(); ?>&amp;label=<?php echo $conversion_label; ?>&amp;guid=ON&amp;script=0"/>
 	</div>
 	</noscript>
 	
 	<?php 
-		} 
+
 	}
 }
 
