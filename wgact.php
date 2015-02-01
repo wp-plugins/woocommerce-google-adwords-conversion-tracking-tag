@@ -4,7 +4,7 @@
 Plugin Name:  WooCommerce Google AdWords conversion tracking tag
 Plugin URI:   http://www.wolfundbaer.ch
 Description:  This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI or your campaigns.
-Version:      0.1.9
+Version:      0.2.0
 Author:       Wolf & Bär
 Author URI:   http://www.wolfundbaer.ch
 
@@ -33,7 +33,7 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 		
 		function cdata_markupfix($content) { $content = str_replace("]]&gt;", "]]>", $content); return $content; }
 		function cdata_template_redirect( $content ) { ob_start('cdata_markupfix'); }
-		add_action('template_redirect','cdata_template_redirect',-1);
+		//add_action('template_redirect','cdata_template_redirect',-1);
 		
 		// add the Google AdWords tag to the footer of the page
 		//add_action( 'wp_head', array( $this, 'GoogleAdWordsTag' ));
@@ -203,32 +203,11 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 	?>
 	
 	<!-- Google Code for Sales (AdWords) Conversion Page -->
-	<script type="text/javascript">
-	/* <![CDATA[ */
-	var google_conversion_id = <?php echo $conversion_id; ?>;
-	var google_conversion_language = "en";
-	var google_conversion_format = "3";
-	var google_conversion_color = "ffffff";
-	var google_conversion_label = "<?php echo $conversion_label; ?>";
-	<?php 
 
-	if ( $order_total ) {
-		echo "var google_conversion_value = " . $order_total . ";";
-	}
-
-	?>
-	
-	var google_conversion_currency = "<?php echo $order->get_order_currency(); ?>";
-	var google_remarketing_only = false;
-	/* ]]> */
-	</script>
-	<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
-	</script>
-	<noscript>
 	<div style="display:inline;">
-	<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/<?php echo $conversion_id; ?>/?value=<?php echo $order_total; ?>&amp;currency_code=<?php echo $order->get_order_currency(); ?>&amp;label=<?php echo $conversion_label; ?>&amp;guid=ON&amp;script=0"/>
+	<img height="1" width="1" style="border-style:none;" alt="" src="http<?php if(is_ssl()){echo "s";}?>://www.googleadservices.com/pagead/conversion/<?php echo $conversion_id; ?>/?value=<?php echo $order_total; ?>&amp;currency_code=<?php echo $order->get_order_currency(); ?>&amp;label=<?php echo $conversion_label; ?>&amp;guid=ON&amp;script=0"/>
 	</div>
-	</noscript>
+
 	
 	<?php 
 
