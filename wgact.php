@@ -1,14 +1,18 @@
 <?php
-/*********************************************************************************************************************************************************************************************************************************
-
+/**
 Plugin Name:  WooCommerce Google AdWords conversion tracking tag
-Plugin URI:   http://www.wolfundbaer.ch
-Description:  This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI or your campaigns.
-Version:      0.2.0
-Author:       Wolf & Bär
+Plugin URI:   https://wordpress.org/plugins/woocommerce-google-adwords-conversion-tracking-tag/
+Description:  Google AdWords dynamic conversion value tracking for WooCommerce.
+Author:       Wolf & Bär GmbH
 Author URI:   http://www.wolfundbaer.ch
+Version:      0.2.1
+License:      GPLv2 or later
+**/
 
-********************************************************************************************************************************************************************************************************************************/
+// Security measure: http://mikejolley.com/2013/08/keeping-your-shit-secure-whilst-developing-for-wordpress/
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly
+}
 
 
 class WGACT{
@@ -42,7 +46,8 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 		add_action( 'woocommerce_thankyou', array( $this, 'GoogleAdWordsTag' ));
 		
 		// add the admin options page
-		add_action('admin_menu', array( $this, 'wgact_plugin_admin_add_page'));
+		// add_action('admin_menu', array( $this, 'wgact_plugin_admin_add_page'));
+		add_action('admin_menu', array( $this, 'wgact_plugin_admin_add_page'),99);
 		
 		// install a settings page in the admin console
 		add_action('admin_init', array( $this, 'wgact_plugin_admin_init'));
@@ -56,13 +61,14 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 	// adds a link on the plugins page for the wgact settings
 	function wgact_settings_link($links, $file) {
 		if ($file == plugin_basename(__FILE__))
-			$links[] = '<a href="' . admin_url("options-general.php?page=do_wgact") . '">'. __('Settings') .'</a>';
+			$links[] = '<a href="' . admin_url("admin.php?page=do_wgact") . '">'. __('Settings') .'</a>';
 		return $links;
 	}
 	
 	// add the admin options page
 	function wgact_plugin_admin_add_page() {
-		add_options_page('WGACT Plugin Page', 'WGACT Plugin Menu', 'manage_options', 'do_wgact', array($this, 'wgact_plugin_options_page'));
+		//add_options_page('WGACT Plugin Page', 'WGACT Plugin Menu', 'manage_options', 'do_wgact', array($this, 'wgact_plugin_options_page'));
+		add_submenu_page('woocommerce', 'AdWords Conversion Tracking', 'AdWords Conversion Tracking', 'manage_options', 'do_wgact', array($this, 'wgact_plugin_options_page'));
 	}
 
 	// display the admin options page
@@ -79,7 +85,7 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 
 	<br>
 	<div style="background: #eee; width: 772px">
-		<div style="background: #ccc; padding: 10px; font-weight: bold">Configuration for the WooCommerce Google AdWords conversion tracking tag</div>
+		<div style="background: #ccc; padding: 10px; font-weight: bold">AdWords Conversion Tracking Settings</div>
 		<form action="options.php" method="post">
 		
 			<?php settings_fields('wgact_plugin_options'); ?>
@@ -105,7 +111,7 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 		    <table class="form-table" style="margin: 10px">
 		   	<tr>
 		   		<th scope="row">
-					<div style="padding: 10px">This plugin was developed by <a href="http://www.wolfundbaer.ch" target="_blank">Wolf & Bär</a><p>Buy me a beer if you like the plugin.<br>
+					<div style="padding: 10px">This plugin was developed by <a href="http://www.wolfundbaer.ch" target="_blank">Wolf & Bär GmbH</a><p>Buy me a beer if you like the plugin.<br>
 					If you want me to continue developing the plugin buy me a few more beers. Although, I probably will continue to develop the plugin anyway. It would be just much more fun if I had a few beers to celebrate my milestones.</div>
 
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -130,13 +136,13 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 	//register_setting( 'plugin_options', 'plugin_options', 'wgact_plugin_options_validate' );
 		register_setting( 'wgact_plugin_options', 'wgact_plugin_options_1');
 		register_setting( 'wgact_plugin_options', 'wgact_plugin_options_2');
-		add_settings_section('wgact_plugin_main', 'WGACT Main Settings', array($this,'wgact_plugin_section_text'), 'do_wgact');
+		add_settings_section('wgact_plugin_main', 'Main Settings', array($this,'wgact_plugin_section_text'), 'do_wgact');
 		add_settings_field('wgact_plugin_text_string_1', 'Conversion ID', array($this,'wgact_plugin_setting_string_1'), 'do_wgact', 'wgact_plugin_main');
 		add_settings_field('wgact_plugin_text_string_2', 'Conversion label', array($this,'wgact_plugin_setting_string_2'), 'do_wgact', 'wgact_plugin_main');	
 	}
 
 	function wgact_plugin_section_text() {
-		echo '<p>Woocommerce Google AdWords conversion tracking tag</p>';
+		//echo '<p>Woocommerce Google AdWords conversion tracking tag</p>';
 	}
 
 	/*

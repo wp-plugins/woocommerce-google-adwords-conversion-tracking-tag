@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: alekv
 Donate link: http://www.wolfundbaer.ch/donations/
-Tags: WooCommerce, Google AdWords, conversion tag, conversion value tracking, conversion tracking
+Tags: WooCommerce, Google AdWords, AdWords, conversion, conversion value, conversion tag, conversion value tracking, conversion tracking
 Requires at least: 3.1
-Tested up to: 4.1
-Stable tag: 0.2.0
+Tested up to: 4.2.2
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,9 @@ You can send the link to the front page of your shop too if you think it would b
 
 == Changelog ==
 
+= 0.2.1 =
+* Update: Improving plugin security
+* Update: Moved the settings to the submenu of WooCommerce
 = 0.2.0 =
 * Update: Further improving cross browser compatibility
 = 0.1.9 =
