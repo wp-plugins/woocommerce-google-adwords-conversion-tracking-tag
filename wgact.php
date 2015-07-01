@@ -5,8 +5,9 @@ Plugin URI:   https://wordpress.org/plugins/woocommerce-google-adwords-conversio
 Description:  Google AdWords dynamic conversion value tracking for WooCommerce.
 Author:       Wolf & Bär GmbH
 Author URI:   http://www.wolfundbaer.ch
-Version:      0.2.1
+Version:      0.2.2
 License:      GPLv2 or later
+Text Domain:  woocommerce-google-adwords-conversion-tracking-tag
 **/
 
 // Security measure: http://mikejolley.com/2013/08/keeping-your-shit-secure-whilst-developing-for-wordpress/
@@ -54,8 +55,19 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 		
 		// add a settings link on the plugins page
 		add_filter('plugin_action_links', array($this, 'wgact_settings_link'), 10, 2);
+		
+		// Load textdomain
+		// source: http://wordpress.stackexchange.com/questions/80334/how-to-make-a-wordpress-plugin-translation-ready
+		// source: http://fooplugins.com/make-a-wordpress-plugin-translations/
+		// source: http://geertdedeckere.be/article/loading-wordpress-language-files-the-right-way
+		add_action('init', array($this, 'load_plugin_textdomain'));
 
 		
+	}
+	
+	// Load text domain function
+	public function load_plugin_textdomain(){
+		load_plugin_textdomain('woocommerce-google-adwords-conversion-tracking-tag', FALSE, dirname(plugin_basename(__FILE__)).'/languages/');
 	}
 	
 	// adds a link on the plugins page for the wgact settings
@@ -85,7 +97,7 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 
 	<br>
 	<div style="background: #eee; width: 772px">
-		<div style="background: #ccc; padding: 10px; font-weight: bold">AdWords Conversion Tracking Settings</div>
+		<div style="background: #ccc; padding: 10px; font-weight: bold"><?php _e( 'AdWords Conversion Tracking Settings', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?></div>
 		<form action="options.php" method="post">
 		
 			<?php settings_fields('wgact_plugin_options'); ?>
@@ -106,13 +118,13 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 		<br>
 	
 		<div style="background: #eee; width: 772px">
-			<div style="background: #ccc; padding: 10px; font-weight: bold">Donation</div>
+			<div style="background: #ccc; padding: 10px; font-weight: bold"><?php _e( 'Donation', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?></div>
 		
 		    <table class="form-table" style="margin: 10px">
 		   	<tr>
 		   		<th scope="row">
-					<div style="padding: 10px">This plugin was developed by <a href="http://www.wolfundbaer.ch" target="_blank">Wolf & Bär GmbH</a><p>Buy me a beer if you like the plugin.<br>
-					If you want me to continue developing the plugin buy me a few more beers. Although, I probably will continue to develop the plugin anyway. It would be just much more fun if I had a few beers to celebrate my milestones.</div>
+					<div style="padding: 10px"><?php _e( 'This plugin was developed by', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?> <a href="http://www.wolfundbaer.ch" target="_blank">Wolf & Bär GmbH</a><p><?php _e( 'Buy me a beer if you like the plugin.', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?><br>
+					<?php _e( 'If you want me to continue developing the plugin buy me a few more beers. Although, I probably will continue to develop the plugin anyway. It would be just much more fun if I had a few beers to celebrate my milestones.', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?></div>
 
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 					<input type="hidden" name="cmd" value="_s-xclick">
@@ -136,9 +148,9 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 	//register_setting( 'plugin_options', 'plugin_options', 'wgact_plugin_options_validate' );
 		register_setting( 'wgact_plugin_options', 'wgact_plugin_options_1');
 		register_setting( 'wgact_plugin_options', 'wgact_plugin_options_2');
-		add_settings_section('wgact_plugin_main', 'Main Settings', array($this,'wgact_plugin_section_text'), 'do_wgact');
-		add_settings_field('wgact_plugin_text_string_1', 'Conversion ID', array($this,'wgact_plugin_setting_string_1'), 'do_wgact', 'wgact_plugin_main');
-		add_settings_field('wgact_plugin_text_string_2', 'Conversion label', array($this,'wgact_plugin_setting_string_2'), 'do_wgact', 'wgact_plugin_main');	
+		add_settings_section('wgact_plugin_main', esc_html__( 'Main Settings', 'woocommerce-google-adwords-conversion-tracking-tag' ), array($this,'wgact_plugin_section_text'), 'do_wgact');
+		add_settings_field('wgact_plugin_text_string_1', esc_html__( 'Conversion ID', 'woocommerce-google-adwords-conversion-tracking-tag' ), array($this,'wgact_plugin_setting_string_1'), 'do_wgact', 'wgact_plugin_main');
+		add_settings_field('wgact_plugin_text_string_2', esc_html__( 'Conversion Label', 'woocommerce-google-adwords-conversion-tracking-tag' ), array($this,'wgact_plugin_setting_string_2'), 'do_wgact', 'wgact_plugin_main');	
 	}
 
 	function wgact_plugin_section_text() {
