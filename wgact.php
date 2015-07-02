@@ -5,7 +5,7 @@ Plugin URI:   https://wordpress.org/plugins/woocommerce-google-adwords-conversio
 Description:  Google AdWords dynamic conversion value tracking for WooCommerce.
 Author:       Wolf & Bär GmbH
 Author URI:   http://www.wolfundbaer.ch
-Version:      0.2.3
+Version:      0.2.4
 License:      GPLv2 or later
 Text Domain:  woocommerce-google-adwords-conversion-tracking-tag
 **/
@@ -97,7 +97,7 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 
 	<br>
 	<div style="background: #eee; width: 772px">
-		<div style="background: #ccc; padding: 10px; font-weight: bold"><?php _e( 'AdWords Conversion Tracking Settings', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?></div>
+		<div style="background: #ccc; padding: 10px; font-weight: bold"><?php esc_html_e( 'AdWords Conversion Tracking Settings', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?></div>
 		<form action="options.php" method="post">
 		
 			<?php settings_fields('wgact_plugin_options'); ?>
@@ -118,13 +118,13 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 		<br>
 	
 		<div style="background: #eee; width: 772px">
-			<div style="background: #ccc; padding: 10px; font-weight: bold"><?php _e( 'Donation', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?></div>
+			<div style="background: #ccc; padding: 10px; font-weight: bold"><?php esc_html_e( 'Donation', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?></div>
 		
 		    <table class="form-table" style="margin: 10px">
 		   	<tr>
 		   		<th scope="row">
-					<div style="padding: 10px"><?php _e( 'This plugin was developed by', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?> <a href="http://www.wolfundbaer.ch" target="_blank">Wolf & Bär GmbH</a><p><?php _e( 'Buy me a beer if you like the plugin.', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?><br>
-					<?php _e( 'If you want me to continue developing the plugin buy me a few more beers. Although, I probably will continue to develop the plugin anyway. It would be just much more fun if I had a few beers to celebrate my milestones.', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?></div>
+					<div style="padding: 10px"><?php esc_html_e( 'This plugin was developed by', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?> <a href="http://www.wolfundbaer.ch" target="_blank">Wolf & Bär GmbH</a><p><?php esc_html_e( 'Buy me a beer if you like the plugin.', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?><br>
+					<?php esc_html_e( 'If you want me to continue developing the plugin buy me a few more beers. Although, I probably will continue to develop the plugin anyway. It would be just much more fun if I had a few beers to celebrate my milestones.', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?></div>
 
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 					<input type="hidden" name="cmd" value="_s-xclick">
