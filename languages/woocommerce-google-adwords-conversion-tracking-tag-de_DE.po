@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce Google AdWords conversion tracking tag\n"
-"POT-Creation-Date: 2015-07-01 20:04+0200\n"
-"PO-Revision-Date: 2015-07-01 20:05+0200\n"
+"POT-Creation-Date: 2015-07-02 06:51+0200\n"
+"PO-Revision-Date: 2015-07-02 06:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -20,31 +20,35 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: wgact.php:73
+#: wgact.php:76
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: wgact.php:97
-msgid "AdWords Conversion Tracking Settings"
-msgstr "AdWords Conversion Tracking-Einstellungen"
+#: wgact.php:83
+msgid "AdWords Conversion Tracking"
+msgstr "AdWords Konversions-Messung"
 
-#: wgact.php:106
+#: wgact.php:100
+msgid "AdWords Conversion Tracking Settings"
+msgstr "AdWords Konversions-Messung Einstellungen"
+
+#: wgact.php:109
 msgid "Save Changes"
 msgstr "Änderungen speichern"
 
-#: wgact.php:118
+#: wgact.php:121
 msgid "Donation"
 msgstr "Spenden"
 
-#: wgact.php:123
+#: wgact.php:126
 msgid "This plugin was developed by"
 msgstr "Dieses Plugin wurde entwickelt von"
 
-#: wgact.php:123
+#: wgact.php:126
 msgid "Buy me a beer if you like the plugin."
 msgstr "Kauf mir ein Bier, wenn du das Plugin magst."
 
-#: wgact.php:124
+#: wgact.php:127
 msgid ""
 "If you want me to continue developing the plugin buy me a few more beers. "
 "Although, I probably will continue to develop the plugin anyway. It would be "
@@ -54,15 +58,15 @@ msgstr ""
 "Bier. Allerdings werde ich das Plugin so oder so weiterentwickeln. Es wär "
 "nur schön wenn jeden Meilenstein mit ein paar Bier feiern könnte."
 
-#: wgact.php:148
+#: wgact.php:151
 msgid "Main Settings"
-msgstr "Einstellungen"
+msgstr "Haupt-Einstellungen"
 
-#: wgact.php:149
+#: wgact.php:152
 msgid "Conversion ID"
 msgstr "Konversions ID"
 
-#: wgact.php:150
+#: wgact.php:153
 msgid "Conversion Label"
 msgstr "Konversions Label"
 
@@ -78,7 +82,7 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid "Google AdWords dynamic conversion value tracking for WooCommerce."
-msgstr "Google AdWords dynamische Konversionsmesssung für WooCommerce."
+msgstr ""
 
 #. Author of the plugin/theme
 msgid "Wolf & Bär GmbH"

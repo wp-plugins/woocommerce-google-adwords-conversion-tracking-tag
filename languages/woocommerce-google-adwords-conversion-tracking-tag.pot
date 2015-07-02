@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce Google AdWords conversion tracking tag\n"
-"POT-Creation-Date: 2015-07-01 19:55+0200\n"
-"PO-Revision-Date: 2015-07-01 19:53+0200\n"
+"POT-Creation-Date: 2015-07-02 06:54+0200\n"
+"PO-Revision-Date: 2015-07-02 06:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,42 +19,50 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: wgact.php:73
+#: wgact.php:76
 msgid "Settings"
 msgstr ""
 
-#: wgact.php:97
+#: wgact.php:83
+msgid "AdWords Conversion Tracking"
+msgstr ""
+
+#: wgact.php:100
 msgid "AdWords Conversion Tracking Settings"
 msgstr ""
 
-#: wgact.php:106
+#: wgact.php:109
 msgid "Save Changes"
 msgstr ""
 
-#: wgact.php:118
+#: wgact.php:121
 msgid "Donation"
 msgstr ""
 
-#: wgact.php:123
+#: wgact.php:126
 msgid "This plugin was developed by"
 msgstr ""
 
-#: wgact.php:123
+#: wgact.php:126
 msgid "Buy me a beer if you like the plugin."
 msgstr ""
 
-#: wgact.php:124
+#: wgact.php:127
 msgid ""
 "If you want me to continue developing the plugin buy me a few more beers. "
 "Although, I probably will continue to develop the plugin anyway. It would be "
 "just much more fun if I had a few beers to celebrate my milestones."
 msgstr ""
 
-#: wgact.php:149
+#: wgact.php:151
+msgid "Main Settings"
+msgstr ""
+
+#: wgact.php:152
 msgid "Conversion ID"
 msgstr ""
 
-#: wgact.php:150
+#: wgact.php:153
 msgid "Conversion Label"
 msgstr ""
 

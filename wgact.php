@@ -5,7 +5,7 @@ Plugin URI:   https://wordpress.org/plugins/woocommerce-google-adwords-conversio
 Description:  Google AdWords dynamic conversion value tracking for WooCommerce.
 Author:       Wolf & Bär GmbH
 Author URI:   http://www.wolfundbaer.ch
-Version:      0.2.2
+Version:      0.2.3
 License:      GPLv2 or later
 Text Domain:  woocommerce-google-adwords-conversion-tracking-tag
 **/
@@ -80,7 +80,7 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 	// add the admin options page
 	function wgact_plugin_admin_add_page() {
 		//add_options_page('WGACT Plugin Page', 'WGACT Plugin Menu', 'manage_options', 'do_wgact', array($this, 'wgact_plugin_options_page'));
-		add_submenu_page('woocommerce', 'AdWords Conversion Tracking', 'AdWords Conversion Tracking', 'manage_options', 'do_wgact', array($this, 'wgact_plugin_options_page'));
+		add_submenu_page('woocommerce', esc_html__( 'AdWords Conversion Tracking', 'woocommerce-google-adwords-conversion-tracking-tag' ), esc_html__( 'AdWords Conversion Tracking', 'woocommerce-google-adwords-conversion-tracking-tag' ), 'manage_options', 'do_wgact', array($this, 'wgact_plugin_options_page'));
 	}
 
 	// display the admin options page
