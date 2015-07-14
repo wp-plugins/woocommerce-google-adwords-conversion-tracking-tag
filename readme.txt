@@ -4,7 +4,7 @@ Donate link: http://www.wolfundbaer.ch/donations/
 Tags: WooCommerce, Google AdWords, AdWords, conversion, conversion value, conversion tag, conversion value tracking, conversion tracking
 Requires at least: 3.1
 Tested up to: 4.2.2
-Stable tag: 0.2.4
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,8 @@ This plugin inserts a Google AdWords conversion tracking tag into the thankyou p
 == Description ==
 
 This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI of your campaigns.
+
+Thanks to Adrijana Nikolic from http://webhostinggeeks.com for the translation into Serbian.
  
 == Installation ==
 
@@ -39,6 +41,9 @@ You can send the link to the front page of your shop too if you think it would b
 
 == Changelog ==
 
+= 1.0 =
+* New: Translation into Serbian by Adrijana Nikolic from http://webhostinggeeks.com
+* Update: Release of version 1.0!
 = 0.2.4 =
 * Update: Minor update to the internationalization
 = 0.2.3 =

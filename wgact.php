@@ -3,9 +3,9 @@
 Plugin Name:  WooCommerce Google AdWords conversion tracking tag
 Plugin URI:   https://wordpress.org/plugins/woocommerce-google-adwords-conversion-tracking-tag/
 Description:  Google AdWords dynamic conversion value tracking for WooCommerce.
-Author:       Wolf & Bär GmbH
+Author:       Wolf + Bär GmbH
 Author URI:   http://www.wolfundbaer.ch
-Version:      0.2.4
+Version:      1.0
 License:      GPLv2 or later
 Text Domain:  woocommerce-google-adwords-conversion-tracking-tag
 **/
@@ -123,7 +123,7 @@ A bit more information on that: Unfortunately there is a filter in WordPress (up
 		    <table class="form-table" style="margin: 10px">
 		   	<tr>
 		   		<th scope="row">
-					<div style="padding: 10px"><?php esc_html_e( 'This plugin was developed by', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?> <a href="http://www.wolfundbaer.ch" target="_blank">Wolf & Bär GmbH</a><p><?php esc_html_e( 'Buy me a beer if you like the plugin.', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?><br>
+					<div style="padding: 10px"><?php esc_html_e( 'This plugin was developed by', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?> <a href="http://www.wolfundbaer.ch" target="_blank">Wolf + Bär GmbH</a><p><?php esc_html_e( 'Buy me a beer if you like the plugin.', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?><br>
 					<?php esc_html_e( 'If you want me to continue developing the plugin buy me a few more beers. Although, I probably will continue to develop the plugin anyway. It would be just much more fun if I had a few beers to celebrate my milestones.', 'woocommerce-google-adwords-conversion-tracking-tag' ) ?></div>
 
 					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
