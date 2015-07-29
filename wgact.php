@@ -1,6 +1,6 @@
 <?php
 /**
-Plugin Name:  WooCommerce Google AdWords conversion tracking tag
+Plugin Name:  WooCommerce AdWords Conversion Tracking
 Plugin URI:   https://wordpress.org/plugins/woocommerce-google-adwords-conversion-tracking-tag/
 Description:  Google AdWords dynamic conversion value tracking for WooCommerce.
 Author:       Wolf + Bär GmbH

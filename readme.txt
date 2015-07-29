@@ -14,7 +14,11 @@ This plugin inserts a Google AdWords conversion tracking tag into the thankyou p
 
 This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI of your campaigns.
 
+<strong>Other plugins</strong>
+
 If you like this plugin you might like that one too: https://wordpress.org/plugins/woocommerce-google-dynamic-retargeting-tag/
+
+<strong>Translations</strong>
 
 Thanks to Adrijana Nikolic from http://webhostinggeeks.com for the translation into Serbian.
  
