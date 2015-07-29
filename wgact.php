@@ -5,7 +5,7 @@ Plugin URI:   https://wordpress.org/plugins/woocommerce-google-adwords-conversio
 Description:  Google AdWords dynamic conversion value tracking for WooCommerce.
 Author:       Wolf + Bär GmbH
 Author URI:   http://www.wolfundbaer.ch
-Version:      1.0
+Version:      1.0.1
 License:      GPLv2 or later
 Text Domain:  woocommerce-google-adwords-conversion-tracking-tag
 **/
