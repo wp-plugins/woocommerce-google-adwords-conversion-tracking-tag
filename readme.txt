@@ -8,11 +8,11 @@ Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin inserts a Google AdWords conversion tracking tag into the thankyou page of a WooCommerce shop, dynamically measuring the conversion value.
+Track the dynamic cart value in AdWords from WooCommerce
 
 == Description ==
 
-This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI of your campaigns.
+This plugin tracks the value of WooCommerce orders in Google AdWords. With this you can optimize all your AdWords campaings to achieve maximum efficiency.
 
 <strong>Other plugins</strong>
 
